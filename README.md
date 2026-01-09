@@ -2,7 +2,14 @@
 
 * Related issue reported on the dependabot repo: https://github.com/dependabot/dependabot-core/issues/13154
 
+** The Bug **
+Dependabot is respecting the `major-upgrades` group but Dependabot has created separate pull requests for each package that should be in the `minor-upgrades` group. See the screenshot below.
+
+![alt text](img/dependabot-pull-requests.png)
+
+
 **Steps to reproduce:**
+
 1. Fork this repository
 2. Open the `Actions` tab on your forked version
 3. Verify Dependabot has started its update
@@ -20,10 +27,10 @@ This can happen if:
 ```
 6. Open the Pull Requests and observe that Dependabot correctly opened a pull request for the major-upgrades group but separate pull requests for each dependency that should have been placed in the minor-upgrades group.
 
-
 **Workaround:**
+
 To workaround this bug you can remove the minor-upgrades group and consolidate all major, minor and patch upgrades into the major-upgrades group OR you can remove the patterns key from each.
 
 **Notes**
-* I have not tested patterns that do not contain wildcards
 
+I have not tested patterns that do not contain wildcards.
