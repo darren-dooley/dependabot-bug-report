@@ -1,0 +1,26 @@
+version: 2
+updates:
+  - package-ecosystem: npm
+    target-branch: 'main'
+    open-pull-requests-limit: 10
+    directory: /
+    schedule:
+      interval: weekly
+      day: sunday
+      timezone: 'Europe/London'
+    commit-message:
+      prefix: 'chore(dep): '
+    versioning-strategy: increase
+    groups:
+      major-upgrades:
+        update-types:
+          - major
+        patterns:
+          - '*'
+      minor-upgrades:
+        update-types:
+          - minor
+          - patch
+        patterns:
+          - '*'
+
