@@ -2,7 +2,8 @@
 
 * Related issue reported on the dependabot repo: https://github.com/dependabot/dependabot-core/issues/13154
 
-** The Bug **
+**The issue**
+
 Dependabot is respecting the `major-upgrades` group but Dependabot has created separate pull requests for each package that should be in the `minor-upgrades` group. See the screenshot below.
 
 ![alt text](img/dependabot-pull-requests.png)
