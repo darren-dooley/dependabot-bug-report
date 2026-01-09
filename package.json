@@ -10,7 +10,7 @@
   "devDependencies": {
   },
   "dependencies": {
-    "fs-extra": "11.1.0",
+    "fs-extra": "11.3.3",
     "js-yaml": "4.0.0",
     "lodash": "3.1.0",
     "underscore": "1.13.6"
