@@ -1,12 +1,17 @@
 ### Repository to Demo a bug with Dependabot groups
 
-* Related issue reported on the dependabot repo: https://github.com/dependabot/dependabot-core/issues/13154
+* Similar issue reported here: https://github.com/dependabot/dependabot-core/issues/13154
 
-** The Bug **
-Dependabot is respecting the `major-upgrades` group but Dependabot has created separate pull requests for each package that should be in the `minor-upgrades` group. See the screenshot below.
+**Description**
+I have defined two groups in my dependabot.yml file: `major-upgrades` and `minor-upgrades`.
+
+However, Dependabot is not grouping the updates that belong to the `minor-upgrades` group, as expected. It is creating a separate PR for each individual update. On the other hand, a PR is correctly created for the `major-upgrades` group.
+
+The screenshot below shows that Dependabot created a single PR for the `major-upgrades` group, as expected, but it created separate pull requests for each minor/patch upgrade.
 
 ![alt text](img/dependabot-pull-requests.png)
 
+Removing the `patterns` key from the group resolved the issue.
 
 **Steps to reproduce:**
 
@@ -25,12 +30,17 @@ This can happen if:
 - your configuration's 'allow' rules do not permit any of the dependencies that match the group
 - the dependencies that match the group rules have been removed from your project
 ```
-6. Open the Pull Requests and observe that Dependabot correctly opened a pull request for the major-upgrades group but separate pull requests for each dependency that should have been placed in the minor-upgrades group.
+6. Open the Pull Requests and observe that Dependabot did not create a PR for the `minor-upgrades` group.
+7. Remove the `patterns` key from the groups and push up your changes to trigger another Dependabot run. Observe that PRs were correctly created for both groups.
 
-**Workaround:**
+**Workarounds**
 
-To workaround this bug you can remove the minor-upgrades group and consolidate all major, minor and patch upgrades into the major-upgrades group OR you can remove the patterns key from each.
+I found two potential workaround but there may be more.
+
+1. You can remove the minor-upgrades group and instead consolidate all major, minor and patch upgrades into a single group.
+2. You can remove the `patterns` key from the group.
 
 **Notes**
 
-I have not tested patterns that do not contain wildcards.
+* I have not tested patterns that do not contain wildcards.
+* I have not tested a group that contains only a `patterns` key.
