@@ -33,7 +33,7 @@ This can happen if:
 6. Open the Pull Requests and observe that Dependabot did not create a PR for the `minor-upgrades` group.
 7. Remove the `patterns` key from the groups and push up your changes to trigger another Dependabot run. Observe that PRs were correctly created for both groups.
 
-** Workarounds **
+**Workarounds**
 
 I found two potential workaround but there may be more.
 
