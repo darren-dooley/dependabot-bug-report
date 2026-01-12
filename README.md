@@ -1,6 +1,5 @@
 ### Repository to Demo a bug with Dependabot groups
-
-* Similar issue reported here: https://github.com/dependabot/dependabot-core/issues/13154
+* Find the issue on the dependabot-core project: https://github.com/dependabot/dependabot-core/issues/13919
 
 **Description**
 I have defined two groups in my dependabot.yml file: `major-upgrades` and `minor-upgrades`.
@@ -44,3 +43,5 @@ I found two potential workaround but there may be more.
 
 * I have not tested patterns that do not contain wildcards.
 * I have not tested a group that contains only a `patterns` key.
+* Similar issue reported here: https://github.com/dependabot/dependabot-core/issues/13154
+
