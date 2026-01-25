@@ -12,7 +12,7 @@
   "dependencies": {
     "fs-extra": "11.1.0",
     "js-yaml": "4.0.0",
-    "lodash": "3.1.0",
+    "lodash": "4.17.21",
     "underscore": "1.13.6"
   }
 }
